@@ -2,31 +2,53 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>QR Code Demo</title>
+  <title>Objets avec QR Code</title>
   <script src="qrcode.min.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    .qr-container {
+      margin-bottom: 30px;
+    }
+  </style>
 </head>
 <body>
   <h1>Objets avec QR Code</h1>
-  <div id="qrcode-container"></div>
+  <div id="qr-list"></div>
 
   <script>
-    const container = document.getElementById("qrcode-container");
+    // Liste des objets et leurs noms
+    const objets = {
+      "OBJ001": "Extincteur CO2",
+      "OBJ002": "Climatisation murale"
+    };
 
-    // Crée un conteneur pour l'objet
-    const objDiv = document.createElement("div");
-    objDiv.innerHTML = "<h3>Extincteur CO2</h3>";
+    // Ton identifiant GitHub ici :
+    const baseURL = "https://ton-pseudo.github.io/qr-app-demo/object.html?id=";
 
-    // Crée une div vide pour recevoir le QR code
-    const qrDiv = document.createElement("div");
-    objDiv.appendChild(qrDiv);
-    container.appendChild(objDiv);
+    const container = document.getElementById("qr-list");
 
-    // Génère le QR code vers la page object.html?id=OBJ001
-    new QRCode(qrDiv, {
-      text: "https://github.com/nadirdif180684/qr-app-demo/blob/main/object.html" + id,
-      width: 150,
-      height: 150
-    });
+    for (const [id, nom] of Object.entries(objets)) {
+      const div = document.createElement("div");
+      div.className = "qr-container";
+
+      const titre = document.createElement("h3");
+      titre.textContent = nom;
+
+      const qrDiv = document.createElement("div");
+
+      div.appendChild(titre);
+      div.appendChild(qrDiv);
+      container.appendChild(div);
+
+      new QRCode(qrDiv, {
+        text: baseURL + id,
+        width: 150,
+        height: 150
+      });
+    }
   </script>
 </body>
 </html>
