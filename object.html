@@ -6,10 +6,32 @@
 </head>
 <body>
   <h1>Fiche de l'objet</h1>
+  <div id="info"></div>
+
   <script>
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
-    document.write(`<p>Vous avez ouvert la fiche de l�objet : <strong>${id}</strong></p>`);
+
+    fetch("https://ton-pseudo.github.io/qr-app-demo/data.json")  // ⬅️ Remplace par ton vrai identifiant GitHub !
+      .then(res => res.json())
+      .then(data => {
+        const obj = data[id];
+        const container = document.getElementById("info");
+
+        if (obj) {
+          container.innerHTML = `
+            <h2>${obj.name}</h2>
+            <p><strong>Description :</strong> ${obj.description}</p>
+            <p><strong>Emplacement :</strong> ${obj.location}</p>
+          `;
+        } else {
+          container.innerHTML = "<p>Objet introuvable.</p>";
+        }
+      })
+      .catch(error => {
+        document.getElementById("info").innerHTML = "<p>Erreur lors du chargement des données.</p>";
+        console.error(error);
+      });
   </script>
 </body>
 </html>
