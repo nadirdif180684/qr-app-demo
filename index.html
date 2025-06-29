@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>QR Code Demo</title>
+  <script src="qrcode.min.js"></script>
+</head>
+<body>
+  <h1>Objets avec QR Code</h1>
+  <div id="qrcode-container"></div>
+
+  <script>
+    const container = document.getElementById("qrcode-container");
+
+    // Crée un conteneur pour l'objet
+    const objDiv = document.createElement("div");
+    objDiv.innerHTML = "<h3>Extincteur CO2</h3>";
+
+    // Crée une div vide pour recevoir le QR code
+    const qrDiv = document.createElement("div");
+    objDiv.appendChild(qrDiv);
+    container.appendChild(objDiv);
+
+    // Génère le QR code vers la page object.html?id=OBJ001
+    new QRCode(qrDiv, {
+      text: "object.html?id=OBJ001",
+      width: 150,
+      height: 150
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "OBJ001": {
+    "name": "Extincteur CO2",
+    "description": "Extincteur à dioxyde de carbone pour feux électriques.",
+    "location": "Salle serveurs, Bâtiment A"
+  },
+  "OBJ002": {
+    "name": "Climatisation murale",
+    "description": "Unité intérieure Mitsubishi Electric",
+    "location": "Bureau 204"
+  }
+}

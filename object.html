@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fiche Objet</title>
+</head>
+<body>
+  <h1>Fiche de l'objet</h1>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+    document.write(`<p>Vous avez ouvert la fiche de l’objet : <strong>${id}</strong></p>`);
+  </script>
+</body>
+</html>
