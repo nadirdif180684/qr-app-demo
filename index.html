@@ -12,18 +12,18 @@
   <script>
     const container = document.getElementById("qrcode-container");
 
-    // Crée un conteneur pour l'objet
+    // CrÃ©e un conteneur pour l'objet
     const objDiv = document.createElement("div");
     objDiv.innerHTML = "<h3>Extincteur CO2</h3>";
 
-    // Crée une div vide pour recevoir le QR code
+    // CrÃ©e une div vide pour recevoir le QR code
     const qrDiv = document.createElement("div");
     objDiv.appendChild(qrDiv);
     container.appendChild(objDiv);
 
-    // Génère le QR code vers la page object.html?id=OBJ001
+    // GÃ©nÃ¨re le QR code vers la page object.html?id=OBJ001
     new QRCode(qrDiv, {
-      text: "object.html?id=OBJ001",
+      text: "https://github.com/nadirdif180684/qr-app-demo/blob/main/object.html",
       width: 150,
       height: 150
     });
